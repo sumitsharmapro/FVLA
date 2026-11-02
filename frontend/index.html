@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DVLA - Register Vehicle Keeper Details</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="govuk-header">
+    <div class="govuk-header__content">
+      <span class="govuk-header__logo">GOV.UK</span>
+      <span class="govuk-header__service-name">Driver & Vehicle Licensing Agency</span>
+    </div>
+  </div>
+
+  <div class="govuk-phase-banner">
+    <span class="govuk-phase-tag">TESTBED</span>
+    <span>This is a mock application for security scanning and testing.</span>
+  </div>
+
+  <main class="govuk-container">
+    <h1 class="govuk-heading-xl">Register Vehicle Keeper Details</h1>
+    <p class="govuk-body">Complete the details below to register the vehicle keeper. For automated testing, you can generate synthetic test data.</p>
+
+    <!-- Generator Button -->
+    <div class="generator-box">
+      <button type="button" id="generate-btn" class="govuk-button govuk-button--secondary">
+        ⚡ Generate for me (Synthetic UK Data)
+      </button>
+      <span class="generator-hint">Generates valid UK-formatted VRM, DOB, and Driving Licence strings.</span>
+    </div>
+
+    <form id="registration-form" class="govuk-form">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="full_name">Full Name</label>
+        <span class="govuk-hint">As shown on your passport or driving licence</span>
+        <input class="govuk-input" id="full_name" name="full_name" type="text" required>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="dob">Date of Birth</label>
+        <span class="govuk-hint">For example, 1985-05-24</span>
+        <input class="govuk-input" id="dob" name="dob" type="date" required>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="car_reg">Car Registration Mark (VRM)</label>
+        <span class="govuk-hint">For example, BD21 SMR</span>
+        <input class="govuk-input govuk-input--uppercase" id="car_reg" name="car_reg" type="text" maxlength="8" required>
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="driving_licence">UK Driving Licence Number</label>
+        <span class="govuk-hint">16-character DVLA format (e.g., SMITH905245AB9IJ)</span>
+        <input class="govuk-input govuk-input--uppercase" id="driving_licence" name="driving_licence" type="text" maxlength="16" required>
+      </div>
+
+      <button type="submit" class="govuk-button">Submit Registration</button>
+    </form>
+
+    <div id="status-message" class="govuk-panel" style="display: none;"></div>
+
+    <hr class="govuk-section-break">
+
+    <!-- Intentional Testbed: Unauthenticated Search (SQLi & IDOR Target) -->
+    <h2 class="govuk-heading-m">Public Vehicle Record Lookup</h2>
+    <div class="lookup-box">
+      <input class="govuk-input" id="lookup-reg" placeholder="Enter Registration Mark (e.g., BD21 SMR)">
+      <button type="button" id="lookup-btn" class="govuk-button govuk-button--secondary">Search Database</button>
+    </div>
+    <pre id="lookup-result" class="code-output"></pre>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
