@@ -1,0 +1,32 @@
+name: DVLA Mock App CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build-and-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: Install Dependencies
+      run: |
+        pip install -r backend/requirements.txt
+
+    # Intentional CI Flaw 1: Echoing sensitive credentials to pipeline logs
+    - name: Deliberate Credential Exposure in Logs
+      run: |
+        MOCK_DEPLOY_TOKEN="glpat-MockGitLabOrGithubToken1234567890abcdef"
+        echo "Authenticating deployment using token: $MOCK_DEPLOY_TOKEN"
+
+    - name: Build Docker Container
+      run: |
+        docker build -t mock-dvla-app:latest -f backend/Dockerfile .
