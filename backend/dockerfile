@@ -1,0 +1,22 @@
+FROM python:3.11-slim
+
+# Intentional Security Flaw 7: Hardcoded secret in Docker ENV (Inspectable via docker history)
+ENV DB_ADMIN_PASSWORD="SuperSecretDvlaPassword2026!"
+ENV DVLA_ENVIRONMENT="production-mock"
+
+WORKDIR /app
+
+COPY backend/requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY backend/ backend/
+COPY frontend/ frontend/
+
+WORKDIR /app/backend
+
+# Intentional Security Flaw 8: Running container as root user (Misconfig scan trigger)
+USER root
+
+EXPOSE 8080
+
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app:app"]
