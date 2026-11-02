@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0b0c0c;
+  background-color: #f3f2f1;
+}
+
+.govuk-header {
+  background-color: #0b0c0c;
+  color: #ffffff;
+  padding: 12px 20px;
+}
+
+.govuk-header__content {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.govuk-header__logo {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.govuk-header__service-name {
+  font-size: 18px;
+  border-left: 1px solid #505a5f;
+  padding-left: 15px;
+}
+
+.govuk-phase-banner {
+  max-width: 960px;
+  margin: 10px auto;
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.govuk-phase-tag {
+  background-color: #1d70b8;
+  color: #ffffff;
+  padding: 2px 8px;
+  font-weight: bold;
+}
+
+.govuk-container {
+  max-width: 720px;
+  margin: 20px auto;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #b1b4b6;
+}
+
+.govuk-heading-xl { font-size: 32px; margin-bottom: 15px; }
+.govuk-heading-m { font-size: 20px; margin-top: 25px; }
+.govuk-body { font-size: 16px; line-height: 1.5; color: #505a5f; }
+
+.generator-box {
+  background-color: #eaf4fb;
+  border-left: 6px solid #1d70b8;
+  padding: 15px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.generator-hint {
+  font-size: 13px;
+  color: #505a5f;
+}
+
+.govuk-form-group {
+  margin-bottom: 20px;
+}
+
+.govuk-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.govuk-hint {
+  display: block;
+  font-size: 14px;
+  color: #505a5f;
+  margin-bottom: 5px;
+}
+
+.govuk-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid #0b0c0c;
+  box-sizing: border-box;
+}
+
+.govuk-input--uppercase {
+  text-transform: uppercase;
+}
+
+.govuk-button {
+  background-color: #00703c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.govuk-button:hover { background-color: #005a30; }
+
+.govuk-button--secondary {
+  background-color: #f3f2f1;
+  color: #0b0c0c;
+  border: 2px solid #0b0c0c;
+}
+
+.govuk-button--secondary:hover { background-color: #dbdad9; }
+
+.govuk-panel {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d2e2d8;
+  border-left: 5px solid #00703c;
+}
+
+.code-output {
+  background: #f8f8f8;
+  padding: 10px;
+  border: 1px solid #ccc;
+  overflow-x: auto;
+  min-height: 40px;
+}
+
+.lookup-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
